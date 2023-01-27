@@ -11,7 +11,16 @@
     <title>Stream</title>
 </head>
 <body>
-    <div id="main-container">
+    <header>
+      <h1 id="title" onclick="document.location='index.html'">Chicken Funland</h1>
+      <div id="navbar">
+        <a href="games.html">Games</a>
+        <a href="stream.html">Stream</a>
+        <a href="pi.html">Pi</a>
+    </div>
+    </header>
+    <div id="body">
+        <div id="main-container">
         <!-- <div id="eptitle">
         </div> -->
         <div class="wrap">
@@ -35,6 +44,11 @@
             <button id="setMaxLevel">max quality</button>
             <script id="playerscript"></script>
         </div>
+    </div>
+    <div id="footer">
+      <p>last updated 1/27/2023</p>
+    </div>
+    
         <script async>
             const maincontainer = document.getElementById('wrap')
             const videotag = document.getElementById("video");
