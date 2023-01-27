@@ -140,98 +140,12 @@
                         quality.enabled = false;
                     }
                     }
-
-                // document.getElementById("setMinLevel").addEventListener('click', () => {
-                //     console.log("Set Min quality level")
-                //     enableQualityLevel(0);          
-                // })
-
-                // document.getElementById("setMaxLevel").addEventListener('click', () => {
-                //     console.log("Set Max quality level")
-                //     enableQualityLevel(qualityLevels.length-1); 
-                // })   
-
-                // let enableQualityLevel = level => {
-
-                //     for (var i = 0; i < qualityLevels.length; i++) {
-                //         let qualityLevel = qualityLevels[i];
-                //         qualityLevel.enabled = i === level ? true : false;
-                //     }
-
-                //     qualityLevels.selectedIndex_ = level;
-                //     qualityLevels.trigger({ type: 'change', selectedIndex: level });    
-                //     }
-
-                // console.log("Set Max quality level")
-                // enableQualityLevel(qualityLevels.length-1); 
                 qualityLevels.on('change', function () {
                     console.log('Quality Level changed!');
                     console.log('New level:', qualityLevels[qualityLevels.selectedIndex]);
                 });      
 
-
-        // // set min quality level
-        // document.getElementById("setMinLevel").addEventListener('click', () => {
-        //     console.log("Set Min quality level")
-        //     enableQualityLevel(0);          
-
-        //     console.log("qualityLevels.selectedIndex: ", qualityLevels.selectedIndex);
-            
-        //     showEnabledLevels();
-        // })
-
-        // set max quality level 
-        // document.getElementById("setMaxLevel").addEventListener('click', () => {
-        //     console.log("Set Max quality level")
-        //     enableQualityLevel(qualityLevels.length-1); 
-
-        //     console.log("qualityLevels.selectedIndex: ", qualityLevels.selectedIndex);
-
-        //     showEnabledLevels();
-        // })        
-
-        // player.on('timeupdate', function (){
-        //     console.log("Playing now: ", player.videoHeight());
-        // })
-
-        // player.on('loadedmetadata', function () {
-
-        //     // enable buttons
-        //     document.getElementById("setMinLevel").disabled = false;
-        //     document.getElementById("setMaxLevel").disabled = false;
-
-        //     // track currently rendered segments change
-        //     let tracks = player.textTracks();
-        //     let segmentMetadataTrack;
-
-        //     for (let i = 0; i < tracks.length; i++) {
-        //         if (tracks[i].label === 'segment-metadata') {
-        //             segmentMetadataTrack = tracks[i];
-        //         }
-        //     }
-
-        //     let previousPlaylist;
-
-        //     if (segmentMetadataTrack) {
-        //         segmentMetadataTrack.on('cuechange', function () {
-        //             let activeCue = segmentMetadataTrack.activeCues[0];
-
-        //             if (activeCue) {
-        //                 if (previousPlaylist !== activeCue.value.playlist) {
-        //                     console.log('Switched from rendition ' + previousPlaylist +
-        //                         ' to rendition ' + activeCue.value.playlist, activeCue.value.resolution.height);
-        //                 }
-        //                 previousPlaylist = activeCue.value.playlist;
-        //             }
-        //         });
-        //     }
-
-        // });
             } 
-            
-    
-            
-            
             </script>
         <!-- <script src="./script.js"></script> -->
     </div>
