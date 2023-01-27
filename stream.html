@@ -2,13 +2,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <link rel="stylesheet" href="./style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
     <script src="./script.js"></script>
     <script src="https://unpkg.com/video.js/dist/alt/video.core.js"></script>
     <script src="https://unpkg.com/@videojs/http-streaming@1/dist/videojs-http-streaming.js"></script>
@@ -21,14 +15,14 @@
         </div> -->
         <div class="wrap">
             <div class="search">
-            <input type="text" class="searchTerm" placeholder="Anime name...">
+            <input type="text" class="searchTerm" placeholder="name...">
             <button onclick="searchAnime()" id="playbutton" type="submit" class="searchButton">
                 <i class="fa fa-search"></i>
             </button>
             </div>
         </div>
         <div class="animebox">
-            <p id="maintitle">Anime Details</p>
+            <p id="maintitle">Details</p>
             <p id="details">No Search Query!</p>
         </div>
         <div id="mainplayer" class="mainplayer">
