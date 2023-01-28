@@ -152,7 +152,7 @@
                 await playVideo(epdata.sources[epdata.sources.length - 2].url, data.cover)
                 document.body.style.background = `url("${data.cover}")`
                 main.style.display = ""
-                document.getElementById('footer').innerHTML += '<button onclick="fetchFile(episodeurl)">Download episode</button>'
+                document.getElementById('footer').innerHTML += '<button onclick="fetchFile(epdata.sources[epdata.sources.length - 2].url)">Download episode</button>'
             }
 
             async function playVideo(url, poster) {
