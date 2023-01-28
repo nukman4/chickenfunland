@@ -152,7 +152,7 @@
                 const downloadlink = epdata.sources[epdata.sources.length - 2].url
                 document.body.style.background = `url("${data.cover}")`
                 main.style.display = ""
-                document.getElementById('footer').innerHTML += '<button onclick="fetchFile(downloadlink)">Download episode</button>'
+                document.getElementById('footer').innerHTML += '<a href="${downloadlink}" download></a>'
             }
 
             async function playVideo(url, poster) {
