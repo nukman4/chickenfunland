@@ -52,6 +52,8 @@
       <p>last updated 1/27/2023</p>
     </div>
         <script async>
+            var downloadlink;
+            const m3u8 = new M3U8();
             const maincontainer = document.getElementById('wrap')
             const videotag = document.getElementById("video");
             const button = document.getElementById("playvideo");
@@ -132,10 +134,10 @@
                 const epdata = await epresp.json();
                 await playVideo(epdata.sources[epdata.sources.length - 2].url, data.cover)
                 console.log(epdata.sources[epdata.sources.length - 2].url)
-                const downloadlink = epdata.sources[epdata.sources.length - 2].url
+                downloadlink = epdata.sources[epdata.sources.length - 2].url
                 document.body.style.background = `url("${data.cover}")`
                 main.style.display = ""
-                
+                document.getElementById('footer').innerHTML += '<button onclick="m3u8.start(downloadlink);"></button>'
             }
 
             async function playVideo(url, poster) {
