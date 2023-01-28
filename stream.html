@@ -51,7 +51,24 @@
     <div id="footer">
       <p>last updated 1/27/2023</p>
     </div>
-    
+        <script>
+            function fetchFile(url) {
+                fetch(url).then(res => res.blob()).then(file => {
+                    let tempUrl = URL.createObjectURL(file);
+                    const aTag = document.createElement("a");
+                    aTag.href = tempUrl;
+                    aTag.download = url.replace(/^.*[\\\/]/, '');
+                    document.body.appendChild(aTag);
+                    aTag.click();
+                    downloadBtn.innerText = "Download File";
+                    URL.revokeObjectURL(tempUrl);
+                    aTag.remove();
+                }).catch(() => {
+                    alert("Failed to download file!");
+                    downloadBtn.innerText = "Download File";
+                });
+            }
+        </script>
         <script async>
             var downloadlink;
             const maincontainer = document.getElementById('wrap')
@@ -130,13 +147,12 @@
                 episodetitle = episode.title
                 episodename.innerText = `Episode: ${episode.number} - ${episodetitle} HD`
                 episodeurl = "https://api.consumet.org/anime/enime/watch?episodeId=" + episodeid
-                downloadlink = episodeurl
                 const epresp = await fetch(episodeurl);
                 const epdata = await epresp.json();
                 await playVideo(epdata.sources[epdata.sources.length - 2].url, data.cover)
                 document.body.style.background = `url("${data.cover}")`
                 main.style.display = ""
-                document.getElementById('footer').innerHTML += "<a href='/download-file' download>Download episode</a>"
+                document.getElementById('footer').innerHTML += '<button onclick="fetchFile(episodeurl)">Download episode</button>'
             }
 
             async function playVideo(url, poster) {
