@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="./script.js"></script>
     <script src="https://unpkg.com/video.js/dist/alt/video.core.js"></script>
     <script src="https://unpkg.com/@videojs/http-streaming@1/dist/videojs-http-streaming.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-quality-levels/2.0.9/videojs-contrib-quality-levels.min.js"></script>
@@ -70,7 +69,6 @@
             }
         </script>
         <script async>
-            var downloadlink;
             const maincontainer = document.getElementById('wrap')
             const videotag = document.getElementById("video");
             const button = document.getElementById("playvideo");
@@ -150,9 +148,10 @@
                 const epresp = await fetch(episodeurl);
                 const epdata = await epresp.json();
                 await playVideo(epdata.sources[epdata.sources.length - 2].url, data.cover)
+                const downloadlink = epdata.sources[epdata.sources.length - 2].url
                 document.body.style.background = `url("${data.cover}")`
                 main.style.display = ""
-                document.getElementById('footer').innerHTML += '<button onclick="fetchFile(epdata.sources[epdata.sources.length - 2].url)">Download episode</button>'
+                document.getElementById('footer').innerHTML += '<button onclick="fetchFile(downloadlink)">Download episode</button>'
             }
 
             async function playVideo(url, poster) {
