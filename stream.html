@@ -46,7 +46,6 @@
             <button id="setMaxLevel">max quality</button>
             <script id="playerscript"></script>
         </div>
-    <a id="downloadbutton" style="visible: false;" href='/download-file' download>Download</a>
     </div>
     <br>
     <div id="footer">
@@ -54,6 +53,7 @@
     </div>
     
         <script async>
+            var downloadlink;
             const maincontainer = document.getElementById('wrap')
             const videotag = document.getElementById("video");
             const button = document.getElementById("playvideo");
@@ -118,8 +118,6 @@
             }
 
             async function getAnimeInfo() {
-                console.log('info func called')
-                console.log('hi im here')
                 document.getElementById('episodeNumber').style.display = "none"
                 document.getElementById('infobutton').style.display = "none"
                 episodenum = document.getElementById('episodeNumber').value
@@ -132,11 +130,13 @@
                 episodetitle = episode.title
                 episodename.innerText = `Episode: ${episode.number} - ${episodetitle} HD`
                 episodeurl = "https://api.consumet.org/anime/enime/watch?episodeId=" + episodeid
+                downloadlink = episodeurl
                 const epresp = await fetch(episodeurl);
                 const epdata = await epresp.json();
                 await playVideo(epdata.sources[epdata.sources.length - 2].url, data.cover)
                 document.body.style.background = `url("${data.cover}")`
                 main.style.display = ""
+                document.getElementById('footer').innerHTML += "<a href='/download-file' download>Download episode</a>"
             }
 
             async function playVideo(url, poster) {
@@ -165,7 +165,6 @@
 
             } 
             </script>
-        <!-- <script src="./script.js"></script> -->
     </div>
     <div class="questionbox"></div>
 </body>
