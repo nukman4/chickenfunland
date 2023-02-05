@@ -163,7 +163,7 @@
                 document.getElementById('progtext').innerHTML = `Playing episode <code>${episodenum}</code> now!`
                 videoattached = true
                 animebox.style.display = "none"
-                let qualityLevels = player.qualityLevels();
+                let qualityLevels = new player.qualityLevels();
 
                 for (var i = 0; i < qualityLevels.length; i++) {
                     var quality = qualityLevels[i];
